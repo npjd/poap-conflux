@@ -4,6 +4,6 @@ out = 'out'
 libs = ['lib']
 
 remappings = ["ds-test/=lib/ds-test/src/","@openzeppelin/=lib/openzeppelin-contracts/","forge-std/=lib/forge-std/src/"]
-
+gas_reports = ["*"]
 
 # See more config options https://github.com/foundry-rs/foundry/tree/master/config
