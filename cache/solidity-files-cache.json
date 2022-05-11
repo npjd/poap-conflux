@@ -9,6 +9,39 @@
     ]
   },
   "files": {
+    "/Users/nimapourjafar/Documents/GitHub/poap-conflux/lib/ds-test/src/test.sol": {
+      "lastModificationDate": 1652192298418,
+      "contentHash": "962996f0e05d5218857a538a62d7c47e",
+      "sourceName": "lib/ds-test/src/test.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ]
+            }
+          },
+          "evmVersion": "london"
+        }
+      },
+      "imports": [],
+      "versionRequirement": ">=0.5.0",
+      "artifacts": {}
+    },
     "/Users/nimapourjafar/Documents/GitHub/poap-conflux/lib/openzeppelin-contracts/contracts/access/AccessControl.sol": {
       "lastModificationDate": 1652297076690,
       "contentHash": "08101487003fda67e21e6d2cfe35bb2e",
@@ -515,8 +548,8 @@
       }
     },
     "/Users/nimapourjafar/Documents/GitHub/poap-conflux/src/POAP.sol": {
-      "lastModificationDate": 1652299276027,
-      "contentHash": "3288b5d9a60f733ddbe270396e2caea9",
+      "lastModificationDate": 1652299435686,
+      "contentHash": "78b2d15a4191a2c4adc7ad84e3f426d4",
       "sourceName": "src/POAP.sol",
       "solcConfig": {
         "settings": {
@@ -559,11 +592,56 @@
         "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol"
       ],
       "versionRequirement": "^0.8.10",
-      "artifacts": {
-        "POAP": {
-          "0.8.13+commit.abaa5c0e.Darwin.appleclang": "POAP.sol/POAP.json"
+      "artifacts": {}
+    },
+    "/Users/nimapourjafar/Documents/GitHub/poap-conflux/test/POAP.t.sol": {
+      "lastModificationDate": 1652299724972,
+      "contentHash": "e8cb3429d9ffdd31ea7245b165c3ca8d",
+      "sourceName": "test/POAP.t.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ]
+            }
+          },
+          "evmVersion": "london"
         }
-      }
+      },
+      "imports": [
+        "lib/ds-test/src/test.sol",
+        "lib/openzeppelin-contracts/contracts/access/AccessControl.sol",
+        "lib/openzeppelin-contracts/contracts/access/IAccessControl.sol",
+        "lib/openzeppelin-contracts/contracts/security/Pausable.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721Receiver.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Address.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Counters.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Strings.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
+        "src/POAP.sol"
+      ],
+      "versionRequirement": "^0.8.10",
+      "artifacts": {}
     }
   }
 }
