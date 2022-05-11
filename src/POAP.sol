@@ -6,6 +6,11 @@ import "@openzeppelin/contracts/security/Pausable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
 
+// TODO:
+// limit the number of tokens that can be minted to one per minter (enuremable)
+// add a way for admins to give pauser roles to others
+// make tokens untransferable
+
 contract POAP is ERC721, Pausable, AccessControl {
     using Counters for Counters.Counter;
     string public immutable baseUri;
