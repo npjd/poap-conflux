@@ -8,7 +8,7 @@ import "@openzeppelin/contracts/access/AccessControl.sol";
 
 contract POAP is ERC721, Pausable, AccessControl {
     using Counters for Counters.Counter;
-
+    string public immutable baseUri;
     bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
 
@@ -17,6 +17,7 @@ contract POAP is ERC721, Pausable, AccessControl {
     constructor(
         string memory name,
         string memory symbol,
+        string memory baseUri,
         address[] memory minters
     ) ERC721(name, symbol) {
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
@@ -25,6 +26,7 @@ contract POAP is ERC721, Pausable, AccessControl {
         for (uint256 index = 0; index < minters.length; index++) {
             _grantRole(MINTER_ROLE, minters[index]);
         }
+        this.baseUri = baseUri;
     }
 
     function safeMint(address to) public onlyRole(MINTER_ROLE) {
@@ -40,7 +42,10 @@ contract POAP is ERC721, Pausable, AccessControl {
     function unpause() public onlyRole(PAUSER_ROLE) {
         _unpause();
     }
-
+    
+    function _baseURI() internal pure override returns (string memory) {
+        return baseUri;
+    }
 
     function supportsInterface(bytes4 interfaceId)
         public
