@@ -7,34 +7,38 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
 
 // TODO:
-// limit the number of tokens that can be minted to one per minter (enuremable)
 // add a way for admins to give pauser roles to others
 // make tokens untransferable
 
 contract POAP is ERC721, Pausable, AccessControl {
     using Counters for Counters.Counter;
-    string public immutable baseUri;
     bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
-
+    string private baseUri;
     Counters.Counter private _tokenIdCounter;
 
     constructor(
-        string memory name,
-        string memory symbol,
-        string memory baseUri,
-        address[] memory minters
-    ) ERC721(name, symbol) {
+        string memory _name,
+        string memory _symbol,
+        string memory _baseUri,
+        address[] memory _minters
+    ) ERC721(_name, _symbol) {
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
         _grantRole(PAUSER_ROLE, msg.sender);
         _grantRole(MINTER_ROLE, msg.sender);
-        for (uint256 index = 0; index < minters.length; index++) {
-            _grantRole(MINTER_ROLE, minters[index]);
+        for (uint256 index = 0; index < _minters.length; index++) {
+            _grantRole(MINTER_ROLE, _minters[index]);
         }
-        this.baseUri = baseUri;
+        baseUri = _baseUri;
     }
 
-    function safeMint(address to) public onlyRole(MINTER_ROLE) {
+    function _baseURI() internal view override returns (string memory) {
+        return baseUri;
+    }
+
+
+    function safeMint(address to) public onlyRole(MINTER_ROLE) whenNotPaused() {
+        require(balanceOf(msg.sender) == 0, "Cannot mint twice");
         uint256 tokenId = _tokenIdCounter.current();
         _tokenIdCounter.increment();
         _safeMint(to, tokenId);
@@ -46,10 +50,6 @@ contract POAP is ERC721, Pausable, AccessControl {
 
     function unpause() public onlyRole(PAUSER_ROLE) {
         _unpause();
-    }
-    
-    function _baseURI() internal pure override returns (string memory) {
-        return baseUri;
     }
 
     function supportsInterface(bytes4 interfaceId)
