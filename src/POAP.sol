@@ -36,8 +36,7 @@ contract POAP is ERC721, Pausable, AccessControl {
         return baseUri;
     }
 
-
-    function safeMint(address to) public onlyRole(MINTER_ROLE) whenNotPaused() {
+    function safeMint(address to) public onlyRole(MINTER_ROLE) whenNotPaused {
         require(balanceOf(to) == 0, "Cannot mint twice");
         uint256 tokenId = _tokenIdCounter.current();
         _tokenIdCounter.increment();
@@ -50,6 +49,15 @@ contract POAP is ERC721, Pausable, AccessControl {
 
     function unpause() public onlyRole(PAUSER_ROLE) {
         _unpause();
+    }
+
+    function _beforeTokenTransfer(
+        address from,
+        address to,
+        uint256 tokenId
+    ) internal virtual override {
+        require(from == 0x0000000000000000000000000000000000000000, "Cannot transfer token");
+        super._beforeTokenTransfer(from, to, tokenId);
     }
 
     function supportsInterface(bytes4 interfaceId)

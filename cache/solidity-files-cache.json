@@ -685,8 +685,8 @@
       }
     },
     "/Users/nimapourjafar/Documents/GitHub/poap-conflux/src/POAP.sol": {
-      "lastModificationDate": 1652572213442,
-      "contentHash": "2dd8aa2e97a751be52c0580dcbba3ad4",
+      "lastModificationDate": 1652580250989,
+      "contentHash": "5f2fd03e217bf2939abc6a2a8582b95f",
       "sourceName": "src/POAP.sol",
       "solcConfig": {
         "settings": {
@@ -736,8 +736,8 @@
       }
     },
     "/Users/nimapourjafar/Documents/GitHub/poap-conflux/test/POAP.t.sol": {
-      "lastModificationDate": 1652572687576,
-      "contentHash": "c866a7c7b18ff585effe51864bc3ea34",
+      "lastModificationDate": 1652575786095,
+      "contentHash": "64e4ab4d7c8ed788d3073c92f3c1a353",
       "sourceName": "test/POAP.t.sol",
       "solcConfig": {
         "settings": {

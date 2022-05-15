@@ -24,4 +24,6 @@ contract POAPTest is Test {
         // why is this not catching the revert?
         POAPContract.safeMint(msg.sender);
     }
+
+    // TODO: write test for transfering    
 }
