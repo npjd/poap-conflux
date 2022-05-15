@@ -685,8 +685,8 @@
       }
     },
     "/Users/nimapourjafar/Documents/GitHub/poap-conflux/src/POAP.sol": {
-      "lastModificationDate": 1652580250989,
-      "contentHash": "5f2fd03e217bf2939abc6a2a8582b95f",
+      "lastModificationDate": 1652634468008,
+      "contentHash": "968a7eeb13885797bbcb772107ca9971",
       "sourceName": "src/POAP.sol",
       "solcConfig": {
         "settings": {
@@ -729,15 +729,11 @@
         "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol"
       ],
       "versionRequirement": "^0.8.10",
-      "artifacts": {
-        "POAP": {
-          "0.8.13+commit.abaa5c0e.Darwin.appleclang": "POAP.sol/POAP.json"
-        }
-      }
+      "artifacts": {}
     },
     "/Users/nimapourjafar/Documents/GitHub/poap-conflux/test/POAP.t.sol": {
-      "lastModificationDate": 1652575786095,
-      "contentHash": "64e4ab4d7c8ed788d3073c92f3c1a353",
+      "lastModificationDate": 1652634519623,
+      "contentHash": "06550d26568aa2cc20db03cb52a6ae6b",
       "sourceName": "test/POAP.t.sol",
       "solcConfig": {
         "settings": {
@@ -786,11 +782,7 @@
         "src/POAP.sol"
       ],
       "versionRequirement": "^0.8.10",
-      "artifacts": {
-        "POAPTest": {
-          "0.8.13+commit.abaa5c0e.Darwin.appleclang": "POAP.t.sol/POAPTest.json"
-        }
-      }
+      "artifacts": {}
     }
   }
 }

@@ -7,8 +7,8 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
 
 // TODO:
-// add a way for admins to give pauser roles to others
-// make tokens untransferable
+// is this baseUri function optimal?
+// make admin give roles to others
 
 contract POAP is ERC721, Pausable, AccessControl {
     using Counters for Counters.Counter;

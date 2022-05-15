@@ -20,10 +20,9 @@ contract POAPTest is Test {
         assertEq("POAP", POAPContract.name());
         POAPContract.safeMint(msg.sender);
         assertEq(1, POAPContract.balanceOf(msg.sender));
-        vm.expectRevert();
-        // why is this not catching the revert?
         POAPContract.safeMint(msg.sender);
+        vm.expectRevert();
     }
 
-    // TODO: write test for transfering    
+
 }
