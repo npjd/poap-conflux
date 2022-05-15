@@ -38,7 +38,7 @@ contract POAP is ERC721, Pausable, AccessControl {
 
 
     function safeMint(address to) public onlyRole(MINTER_ROLE) whenNotPaused() {
-        require(balanceOf(msg.sender) == 0, "Cannot mint twice");
+        require(balanceOf(to) == 0, "Cannot mint twice");
         uint256 tokenId = _tokenIdCounter.current();
         _tokenIdCounter.increment();
         _safeMint(to, tokenId);
